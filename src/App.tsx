@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes, Link } from 'react-router-dom';
 import './App.css';
+import UseCallbackExample from './useCallback/UseCallbackExample';
+import UseMemoExample from './useMemo/UseMemoExample';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="links">
+        <Link to="memo">useMemo</Link>
+        <Link to="callback">callBack</Link>
+      </div>
+      <Routes>
+        <Route path="/memo" element={<UseMemoExample />} />
+        <Route path="/callback" element={<UseCallbackExample />} />
+      </Routes>
     </div>
   );
 }
